@@ -1188,3 +1188,131 @@ public class Transfer {
         this.toAccount = toAccount;
     }
 }
+
+
+//User (Authentication)
+package com.yourpackage.entity;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "users")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long user_id;
+
+    private String username;
+    private String password_hash;
+    private String email;
+    private String phone;
+    private String role;
+    private Boolean mfa_enabled;
+    private LocalDateTime last_login_at;
+    private String status;
+    private LocalDateTime created_at;
+
+    /* ================= RELATIONSHIPS ================= */
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    /* ================= CONSTRUCTORS ================= */
+
+    public User() {
+        // mandatory no-arg constructor
+    }
+
+    /* ================= GETTERS & SETTERS ================= */
+
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword_hash() {
+        return password_hash;
+    }
+
+    public void setPassword_hash(String password_hash) {
+        this.password_hash = password_hash;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getMfa_enabled() {
+        return mfa_enabled;
+    }
+
+    public void setMfa_enabled(Boolean mfa_enabled) {
+        this.mfa_enabled = mfa_enabled;
+    }
+
+    public LocalDateTime getLast_login_at() {
+        return last_login_at;
+    }
+
+    public void setLast_login_at(LocalDateTime last_login_at) {
+        this.last_login_at = last_login_at;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+}
