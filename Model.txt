@@ -1,3 +1,9 @@
+Error: Could not find or load main class com.example.bankbridgeapp.BankBridgeAppApplication
+Caused by: java.lang.NoClassDefFoundError: com/example/bankbridgeapp/BankBridgeAppApplication (wrong name: com/example/bankBridgeApp/BankBridgeAppApplication)
+
+
+
+
 //Customer
 package com.yourpackage.entity;
 
@@ -1420,3 +1426,4 @@ public class User {
     </plugins>
   </build>
 </project>
+
